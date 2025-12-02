@@ -1,5 +1,7 @@
 🌟 ¡Hola! Soy Diego Rubio
 
+![Calendario Escolar](CalendarioEscolar2025.jpg.webp)
+
 🎓 Estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM)
 💻 Apasionado por la tecnología, la programación y la creación de soluciones prácticas y bien estructuradas.
 
