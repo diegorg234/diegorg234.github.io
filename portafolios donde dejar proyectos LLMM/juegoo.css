@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #3498db;
+}
+
+/* Juego */
+.juego-container {
+  max-width: 800px;
+  margin: 120px auto 50px;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.juego-title {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.marcador {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.marcador-item {
+  background: #34495e;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.marcador-numero {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.opciones {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.opcion-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.opcion-btn:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.resultado {
+  padding: 1rem;
+  background: #ecf0f1;
+  border-radius: 5px;
+  margin: 2rem 0;
+  font-weight: bold;
+}
+
+.elecciones {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.eleccion {
+  background: #ecf0f1;
+  padding: 1rem;
+  border-radius: 5px;
+  min-width: 150px;
+}
+
+.reiniciar-btn {
+  background: #e74c3c;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.reiniciar-btn:hover {
+  background: #c0392b;
+}

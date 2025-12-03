@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Tarjetas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eaeaea;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .formulario {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+
+    button {
+      padding: 8px 15px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tarjeta {
+      border: 2px solid #333;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 10px;
+      width: 200px;
+      background-color: #f2f2f2;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .tarjeta img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tarjeta button.eliminar {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .tarjeta button.eliminar:hover {
+      background-color: #e60000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generador de Tarjetas de Perfil</h1>
+  
+  <div class="formulario">
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="number" id="edad" placeholder="Edad">
+    <input type="text" id="profesion" placeholder="Profesión">
+    <button id="crear">Crear Tarjeta</button>
+  </div>
+  
+  <div id="contenedor" class="contenedor"></div>
+
+  <script>
+    const nombre = document.getElementById("nombre");
+    const edad = document.getElementById("edad");
+    const profesion = document.getElementById("profesion");
+    const contenedor = document.getElementById("contenedor");
+    const crear = document.getElementById("crear");
+
+    crear.addEventListener("click", async function() {
+      if (nombre.value === "" || edad.value === "" || profesion.value === "") {
+        alert("Por favor, completa todos los campos");
+        return;
+      }
+
+      // Obtener imagen aleatoria de la API Random User
+      let imagenUrl = "";
+      try {
+        const respuesta = await fetch("https://randomuser.me/api/");
+        const data = await respuesta.json();
+        imagenUrl = data.results[0].picture.medium;
+      } catch (error) {
+        console.log("Error al obtener imagen:", error);
+        imagenUrl = "https://via.placeholder.com/150"; // fallback
+      }
+
+      // Crear tarjeta
+      const tarjeta = document.createElement("div");
+      tarjeta.classList.add("tarjeta");
+
+      // Cambiar color según la edad
+      if (parseInt(edad.value) < 18) {
+        tarjeta.style.backgroundColor = "#a0c4ff"; // azul
+      } else {
+        tarjeta.style.backgroundColor = "#b5e48c"; // verde
+      }
+
+      tarjeta.innerHTML = `
+        <img src="${imagenUrl}" alt="Foto de perfil">
+        <h3>${nombre.value}</h3>
+        <p>Edad: ${edad.value}</p>
+        <p>Profesión: ${profesion.value}</p>
+        <button class="eliminar">Eliminar</button>
+      `;
+
+      // Evento para eliminar tarjeta
+      tarjeta.querySelector(".eliminar").addEventListener("click", () => {
+        tarjeta.remove();
+      });
+
+      contenedor.appendChild(tarjeta);
+
+      // Limpiar los campos
+      nombre.value = "";
+      edad.value = "";
+      profesion.value = "";
+    });
+  </script>
+</body>
+</html>

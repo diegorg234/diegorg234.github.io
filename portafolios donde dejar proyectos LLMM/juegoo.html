@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+    <link rel="stylesheet" href="juegoo.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><a href="portafolios.html" style="color: white; text-decoration: none;">⬅️ Volver al Portafolio</a></h1>
+            </div>
+        </nav>
+    </header>
+
+    <div class="juego-container">
+        <h1 class="juego-title">Piedra, Papel o Tijera</h1>
+        
+        <div class="marcador">
+            <div class="marcador-item">
+                <span class="marcador-numero" id="marcador-usuario">0</span>
+                <span>Jugador</span>
+            </div>
+            <div class="marcador-item">
+                <span class="marcador-numero" id="marcador-computadora">0</span>
+                <span>Computadora</span>
+            </div>
+        </div>
+
+        <div class="elecciones">
+            <div class="eleccion">
+                <h3>Tu elección</h3>
+                <div id="eleccion-usuario">-</div>
+            </div>
+            <div class="eleccion">
+                <h3>Computadora</h3>
+                <div id="eleccion-computadora">-</div>
+            </div>
+        </div>
+
+        <div class="opciones">
+            <button class="opcion-btn" data-opcion="piedra">✊ Piedra</button>
+            <button class="opcion-btn" data-opcion="papel">✋ Papel</button>
+            <button class="opcion-btn" data-opcion="tijera">✌️ Tijera</button>
+        </div>
+
+        <div class="resultado" id="resultado">
+            ¡Elige una opción para comenzar!
+        </div>
+
+        <button class="btn reiniciar-btn" id="reiniciar">Reiniciar Juego</button>
+    </div>
+
+    <script src="juegoo.js"></script>
+</body>
+</html>
+
